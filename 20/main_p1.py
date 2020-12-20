@@ -1,5 +1,4 @@
 import numpy as np
-import matplotlib.pyplot as plt
 
 imgs = {}
 solutions = []
@@ -15,7 +14,7 @@ ks = [k for k in imgs.keys()]
 size = int((len(ks) / 2) ** 0.5)
 
 for id in ks:
-    imgs[id + 'R1'] = np.rot90(imgs[id])  # RN - rotated N times 90 degs CW so the dict sorts nicer
+    imgs[id + 'R1'] = np.rot90(imgs[id])  # RN - rotated N times 90 degs CCW so the dict sorts nicer
     imgs[id + 'R2'] = np.rot90(imgs[id + 'R1'])
     imgs[id + 'R3'] = np.rot90(imgs[id + 'R2'])
 
@@ -62,5 +61,5 @@ for y in range(size):
     for x in range(size):
         x_img = imgs[p1[y, x]][1:-1, 1:-1] if not x else np.concatenate((x_img, imgs[p1[y, x]][1:-1, 1:-1]), axis=1)
     p1_img = x_img if not y else np.concatenate((p1_img, x_img), axis=0)
-np.savetxt('p2_input', p1_img, fmt="%s")
+np.savetxt('input_p2', p1_img, fmt="%s")
 
