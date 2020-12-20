@@ -33,7 +33,6 @@ build_valids(0)
 
 valid_p1, valid_p2 = 0, 0
 magic_len = len(_exp_rules[42][0])
-print(_exp_rules[42])
 
 for m in msgs:
     f_index, b_index = 0, 0
