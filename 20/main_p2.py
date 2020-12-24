@@ -23,7 +23,7 @@ for _ in range(3):
 
 sm_y, sm_x = sm.shape
 
-water_total = dict(zip(*np.unique(img, return_counts=True)))['#']
+rough_total = dict(zip(*np.unique(img, return_counts=True)))['#']
 
 for img in imgs:
     sm_sum = 0
@@ -32,4 +32,4 @@ for img in imgs:
             if all(t == '#' for t in [c for i, c in enumerate(img[y:y+sm_y, x:x+sm_x].flatten()) if i in sm_indices]):
                 sm_sum += 1
     if sm_sum > 0:
-        print(water_total - sm_sum * len(sm_indices))
+        print('part 2:', rough_total - sm_sum * len(sm_indices))
